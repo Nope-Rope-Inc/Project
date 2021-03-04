@@ -1,0 +1,25 @@
+{
+  "name": "nope-rope",
+  "version": "1.0.0",
+  "description": "''\u001b[Dimplementing authenticating via Instagram and create game that uses its features'",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run -s lint",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nope-Rope-Inc/nope-rope.git"
+  },
+  "author": "Daryna Skryp,Ilya Chernachuck,Roman Sylchuck",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nope-Rope-Inc/nope-rope/issues"
+  },
+  "homepage": "https://github.com/Nope-Rope-Inc/nope-rope#readme",
+  "devDependencies": {
+    "eslint": "^7.4.0",
+    "prettier": "1.19.x"
+  },
+  "dependencies": {}
+}
