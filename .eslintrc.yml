@@ -3,12 +3,16 @@ env:
   node: true
 plugins:
   - sonarjs
+  - prettier
 extends:
   - "eslint:recommended"
   - "plugin:sonarjs/recommended"
+  - prettier
 globals:
   api: false
 rules:
+  prettier/prettier:
+    - error
   indent:
     - error
     - 2
