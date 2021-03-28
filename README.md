@@ -2,9 +2,9 @@
 # The target audience
 ## For users who:
 * appreciate easy set up (getting the app up and running quickly).
-* They want to be able to add tasks to their todo lists simply and quickly.
-* They are heavily distracted by social media.
-* They tend to lose track of time.
+* want to be able to add tasks to their todo lists simply and quickly.
+* are heavily distracted by social media.
+* tend to lose track of time.
 # Project Components:
 
 * Library in npm.
