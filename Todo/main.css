@@ -162,6 +162,12 @@ body {
     background-color: transparent;
 }
 
+#Form1 {
+border:0;
+padding-left: 17em;
+}
+
+
 .create-todo-form input:focus, .edit-todo-form input:focus,
 .create-todo-form select:focus, .edit-todo-form select:focus {
     outline:none;
@@ -206,7 +212,7 @@ body {
 
 .todo-tag {
     font-size: 1.6rem;
-    padding: .5rem 2.5rem;
+    padding: 0.5rem 2.5rem;
     border-radius: 5px;
     margin-bottom: 8px;
 }
@@ -215,6 +221,38 @@ body {
     font-size: 1.6rem;
     margin: 1rem 0 2rem 0;
     word-break: break-all;
+}
+
+.todo-name {
+    font-weight: bold;
+    font-size: 1.8rem;
+    margin: 0;
+    word-break: break-all;
+}
+
+.todo-completed{
+    text-decoration: line-through;
+}
+
+.todo-importance{
+    font-size: 1.7rem;
+    font-style: italic;
+    padding-left: 7rem ;
+}
+
+.todo-status-name{
+ display: flex;
+ justify-content: space-between;
+}
+
+.todo-radio{
+    padding: 1rem ;
+    margin-right: 2rem;
+}
+
+.form-card-todo{
+    display: flex;
+    justify-content: space-between;
 }
 
 .todo-actions {
