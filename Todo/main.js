@@ -15,36 +15,36 @@ const spanenetr2 = document.getElementById('Enter2');
 openModalBtn.onclick = function() {
     modal.style.display = "block";
 }
-openGroupModalBtn.onclick = function() {
-    groupModal.style.display = "block";
-}
+// openGroupModalBtn.onclick = function() {
+//     groupModal.style.display = "block";
+// }
 
 closeModalBtn.onclick = function() {
     modal.style.display = "none";
    // modal2.style.display = "none";
 }
 
-closeGroupModalBtn.onclick = function() {
-    groupModal.style.display = "none";
-}
+// closeGroupModalBtn.onclick = function() {
+//     groupModal.style.display = "none";
+// }
 
 spanenetr.onclick = function() {
     modal.style.display = "none";
     //modal2.style.display = "none";
 
 }
-spanenetr2.onclick = function() {
-    groupModal.style.display = "none";
-
-}
+// spanenetr2.onclick = function() {
+//     groupModal.style.display = "none";
+//
+// }
 
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-    else if (event.target == groupModal) {
-        groupModal.style.display = "none";
-    }
+    // else if (event.target == groupModal) {
+    //     groupModal.style.display = "none";
+    // }
 }
 //------------------------------------------//
 
@@ -165,44 +165,44 @@ newTodoForm.addEventListener('submit', (e) => {
 
 // EVENT: Load Edit Todo Form With Values
 let todoToEdit = null;
-todosContainer.addEventListener('click', (e) => {
-    if (e.target.classList[1] === 'fa-edit') {
-        newTodoForm.style.display = 'none';
-        editTodoForm.style.display = 'flex';
+// todosContainer.addEventListener('click', (e) => {
+//     if (e.target.classList[1] === 'fa-edit') {
+//         newTodoForm.style.display = 'none';
+//         // editTodoForm.style.display = 'flex';
+//
+//         todoToEdit = todos.find((todo) => todo._id === e.target.dataset.editTodo);
+//
+//         // editTodoDescriptionInput.value= todoToEdit.ToDoDescription;
+//         editTodoNameInput.value = todoToEdit.ToDoName;
+//         editTodoImportanceSelect.value = todoToEdit.ToDoImportance;
+//
+//     }
+//     if (e.target.classList[1] === 'fa-trash-alt') {
+//         const todoToDeleteIndex = todos.findIndex((todo) => todo._id === e.target.dataset.deleteTodo);
+//
+//         todos.splice(todoToDeleteIndex, 1);
+//
+//         saveAndRender();
+//     }
+// });
 
-        todoToEdit = todos.find((todo) => todo._id === e.target.dataset.editTodo);
-
-        editTodoDescriptionInput.value= todoToEdit.ToDoDescription;
-        editTodoNameInput.value = todoToEdit.ToDoName;
-        editTodoImportanceSelect.value = todoToEdit.ToDoImportance;
-        
-    }
-    if (e.target.classList[1] === 'fa-trash-alt') {
-        const todoToDeleteIndex = todos.findIndex((todo) => todo._id === e.target.dataset.deleteTodo);
-
-        todos.splice(todoToDeleteIndex, 1);
-
-        saveAndRender();
-    }
-});
-
-// EVENT: Update The Todo Being Edited With New Values
-editTodoForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    todoToEdit.ToDoDescription = editTodoDescriptionInput.value
-    todoToEdit.ToDoName = editTodoNameInput.value ;
-    todoToEdit.ToDoImportance = editTodoImportanceSelect.value;
-  
-    editTodoForm.style.display = 'none';
-    newTodoForm.style.display = 'flex';
-
-    editTodoImportanceSelect = '';
-    editTodoNameInput = '';
-    editTodoDescriptionInput = '';
-
-    saveAndRender();
-});
+// // EVENT: Update The Todo Being Edited With New Values
+// editTodoForm.addEventListener('submit', function (e) {
+//     e.preventDefault();
+//
+//     todoToEdit.ToDoDescription = editTodoDescriptionInput.value
+//     todoToEdit.ToDoName = editTodoNameInput.value ;
+//     todoToEdit.ToDoImportance = editTodoImportanceSelect.value;
+//
+//     editTodoForm.style.display = 'none';
+//     newTodoForm.style.display = 'flex';
+//
+//     editTodoImportanceSelect = '';
+//     editTodoNameInput = '';
+//     editTodoDescriptionInput = '';
+//
+//     saveAndRender();
+// });
 
 // *==================== Functions ====================
 
@@ -230,14 +230,14 @@ function savecheckbox(_id){
         console.log($element.parentElement.children[1].classList);
         $element.parentElement.children[1].classList.toggle("todo-completed");
     }
-  }); 
-  localStorage.setItem(LOCAL_STORAGE_TODOS_KEY,JSON.stringify(todosKey));  
+  });
+  localStorage.setItem(LOCAL_STORAGE_TODOS_KEY,JSON.stringify(todosKey));
 }
 
 function render() {
     clearChildElements(categoriesContainer);
     clearChildElements(newTodoSelect);
-    clearChildElements(editTodoImportanceSelect);
+    // clearChildElements(editTodoImportanceSelect);
     clearChildElements(todosContainer);
 
     renderCategories();
@@ -309,12 +309,29 @@ function renderTodos() {
                     </div> 
                     <p class="todo-description">${ToDoDescription}</p>
 					<div class="todo-actions">
-						<i class="far fa-edit" data-edit-todo=${_id}></i>
+						<i class="far fa-edit" onclick="showEditTaskModal(${_id})" data-edit-todo=${_id}></i>
+						<div id="editTaskModal_${_id}" class="modal" style="display: none;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1>Edit ToDo</h1>
+                                    <span class="close" id="Close2">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                    asfdsgdfhjgkhgfgdfs
+                                </div>
+                            </div>
+        
+                        </div>
 						<i class="far fa-trash-alt" data-delete-todo=${_id}></i>
 					</div>
                     
 			</div>`;
     });
+}
+
+function showEditTaskModal(id) {
+    const modal = document.getElementById(`editTaskModal_${id}`);
+    modal.style.display = 'block';
 }
 
 // HELPERS

@@ -21,17 +21,18 @@
                 <h1 class="header-title">
                     My Categories
                 </h1>
-                <form class="sidebar-form" data-new-category form>
+                <form class="sidebar-form" data-new-category-form>
                     <div class="form-control">
-                        <input type="text" placeholder="Enter your category" data-new-category-input">
+                        <input type="text" placeholder="Enter your category" data-new-category-input>
                     </div>
                     <button class="btn btn-primary">
                         <i class="fa fa-plus" aria-hidden="true"></i> Add Category
                     </button>
                 </form>
             </header>
-            <ul class="sidebar-list" daat-categories>
+            <ul class="sidebar-list" data-categories>
                 <li class="sidebar-item">All Categories</li>
+
             </ul>
         </aside>
 
@@ -42,8 +43,7 @@
             <header class="header">
                 <div>
                     <h1 class="header-title">Welcome back, <strong>Developer Studio</strong></h1>
-                    <div class="currently-viewing" data-currently-viewing>You are currently viewing All Categories
-                    </div>
+                    <div class="currently-viewing" data-currently-viewing>You are currently viewing All Categories</div>
                 </div>
 
                 <!-- Create Todo Form -->
@@ -61,14 +61,14 @@
                             <div class="modal-body">
 
                                 <div class="form-control">
-                                    <select data-new-todo-select>
+                                    <select data-new-todo-select required>
                                         <option value="" disabled selected>All Categories</option>
                                     </select>
-                                    <select data-new-todoimportance-select>
+                                    <select data-new-todoimportance-select required>
                                         <option value="" disabled selected>Select Importance</option>
-                                        <option value="1">Hight</option>
-                                        <option value="2">Medium</option>
-                                        <option value="3">Low</option>
+                                        <option value="Hight">Hight</option>
+                                        <option value="Medium">Medium</option>
+                                        <option value="Low">Low</option>
                                     </select>
                                 </div>
                                 <div class="form-control">
@@ -89,75 +89,59 @@
 
                     </div>
                 </form>
-               
+
                 <!-- Create Group Todo Form -->
-                <form class="create-todo-form" id="Form2" data-new-todo-form>
-                    <button class="btn btn-primary" id="myBtn2">
-                        <i class="fa fa-plus" aria-hidden="true"></i> Add Group Todo
-                    </button>
-                    <div id="myModal2" class="modal">
-                        <div class="modal-content">
-                            <div class="modal-header">
+<!--                <form class="create-todo-form" id="Form2" data-new-todo-form>-->
+<!--                    <button class="btn btn-primary" id="myBtn2">-->
+<!--                        <i class="fa fa-plus" aria-hidden="true"></i> Add Group Todo-->
+<!--                    </button>-->
+<!--                    <div id="myModal2" class="modal">-->
+<!--                        <div class="modal-content">-->
+<!--                            <div class="modal-header">-->
 
-                                <h1>New Group ToDo</h1>
-                                <span class="close" id="Close2">&times;</span>
-                            </div>
-                            <div class="modal-body">
+<!--                                <h1>New Group ToDo</h1>-->
+<!--                                <span class="close" id="Close2">&times;</span>-->
+<!--                            </div>-->
+<!--                            <div class="modal-body">-->
 
-                                <div class="form-control">
-                                    <select data-new-todo-select>
-                                        <option value="" disabled selected>All Categories</option>
-                                    </select>
-                                    <select data-new-todoimportance-select>
-                                        <option value="" disabled selected>Select Importance</option>
-                                        <option value="1">Hight</option>
-                                        <option value="2">Medium</option>
-                                        <option value="3">Low</option>
-                                    </select>
-                                </div>
-                                <div class="form-control">
-                                    <input type="text" data-new-todoname-input placeholder="Enter Todo Name" required>
+<!--                                <div class="form-control">-->
+<!--                                    <select data-new-todo-select>-->
+<!--                                        <option value="" disabled selected>All Categories</option>-->
+<!--                                    </select>-->
+<!--                                    <select data-new-todoimportance-select>-->
+<!--                                        <option value="" disabled selected>Select Importance</option>-->
+<!--                                        <option value="Hight">Hight</option>-->
+<!--                                        <option value="Medium">Medium</option>-->
+<!--                                        <option value="Low">Low</option>-->
+<!--                                    </select>-->
+<!--                                </div>-->
+<!--                                <div class="form-control">-->
+<!--                                    <input type="text" data-new-todoname-input placeholder="Enter Todo Name" required>-->
 
-                                    <input type="text" data-new-tododescription-input
-                                        placeholder="Enter Todo Description" required>
-                                </div>
+<!--                                    <input type="text" data-new-tododescription-input-->
+<!--                                        placeholder="Enter Todo Description" required>-->
+<!--                                    <i class="fa fa-plus" aria-hidden="true"></i>-->
+<!--                                </div>-->
 
-                            </div>
-                            <button class="btn btn-primary">
-                                <span class="enter" id="Enter2">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add Todo
-                                </span>
-                            </button>
+<!--                            </div>-->
+<!--                            <button class="btn btn-primary">-->
+<!--                                <span class="enter" id="Enter2">-->
+<!--                                    <i class="fa fa-plus" aria-hidden="true"></i> Add Todo-->
+<!--                                </span>-->
+<!--                            </button>-->
 
-                        </div>
+<!--                        </div>-->
 
-                    </div>
-                </form>
+<!--                    </div>-->
+<!--                </form>-->
 
                 <!-- Edit Todo Form -->
-                <form class="edit-todo-form" data-edit-todo-form>
-                    <div class="form-control">
-                        <select data-edit-todo-select required>
-                            <option value="" disabled selected>All Categories</option>
-                        </select>
-                        <select data-edit-todoimportance-select>
-                            <option value="" disabled selected>Select Importance</option>
-                            <option value="1">imortant</option>
-                            <option value="2">norm</option>
-                            <option value="3">low</option>
-                        </select>
-                    </div>
-                    <div class="form-control">
-                        <input type="text" data-edit-todoname-input placeholder="Enter Todo Name" required>
 
-                        <input type="text" data-edit-tododescription-input placeholder="Enter Todo Description"
-                            required>
-                    </div>
-                    <button class="btn btn-primary">
-                        Save
-                    </button>
-                </form>
             </header>
+            <!-- Cards -->
+            <section class="todos-container" data-cards>
+
+            </section>
         </main>
     </div>
 
