@@ -15,7 +15,6 @@ closeModalBtn.onclick = function() {
     modal.style.display = "none";
 }
 
-
 spanenetr.onclick = function() {
     modal.style.display = "none";
 }
