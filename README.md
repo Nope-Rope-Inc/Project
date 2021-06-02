@@ -13,14 +13,12 @@
 # Features:
 
 - [ ] Adding a simple or complex task.Users can add their subtasks to the complex task.
-- [ ] Set a deadline to a certain task.
-- [ ] Search certain task by date or name.
 - [ ] Add the ability to prioritize tasks.The most priority ones are marked as High,etc.
 - [ ] Sorting task by label or category.
 - [ ] Marked task as completed or simply delete them.
-- [ ] Adding subtasks you can also has the ability prioritizing ,renaming,setting a deadline and deleting them.
-- [ ] Sync data across all devices that users use.
-- [ ] Adding group tasks.
+- [ ] Adding subtasks you can also has the ability prioritizing ,renaming and deleting them.
+
+
 
 
 
