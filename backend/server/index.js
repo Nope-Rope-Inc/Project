@@ -25,10 +25,12 @@ const Server = {
 		app.use(bodyParser());
 
 		app.use(koaStatic(STATIC_PATH));
-
 		app.use(router.routes());
 		app.listen(port);
 
+		// app.use(function *(){
+		// 	this.set('Access-Control-Allow-Origin', '*');
+		// 			});
 		console.log(`=> [Server] Сервер запущений на ${port} порту`);
 	}
 };

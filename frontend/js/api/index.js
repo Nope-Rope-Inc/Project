@@ -1,5 +1,5 @@
 const api = axios.create({
-	baseURL: 'http://localhost',
+	baseURL: '/',
 	withCredentials: true
 });
 
