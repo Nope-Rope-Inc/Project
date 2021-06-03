@@ -1,6 +1,6 @@
 module.exports = {
 	db: {
-		url: 'mongodb://localhost:27017/roma-and-birb'
+		url: 'mongodb+srv://Roma-and-Birb:Roma13228@cluster0.kkz9q.mongodb.net/TodoJS?retryWrites=true&w=majority'
 	},
 	server: {
 		port: 80,
