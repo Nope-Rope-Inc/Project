@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "ttest": "jest",
+    "test": "jest",
     "start": "node ./backend/index.js",
     "dev": "nodemon ./backend/index.js",
     "prepare": "husky install"
