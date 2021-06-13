@@ -7,6 +7,7 @@ node_modules/
 # Configs
 backend/config/configs/*
 !backend/config/configs/default.js
+!backend/config/configs/test.js
 
 # Logs
 logs
