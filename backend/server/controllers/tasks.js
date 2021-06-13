@@ -3,7 +3,7 @@ const taskService = require('../../domain/services/task');
 const readMany = async (ctx) => {
 	const { userId } = ctx.session;
 
-	ctx.body = await taskService.getTasks({ owner: userId });
+	ctx.body = await taskService.getMany({ owner: userId });
 	ctx.status = 200;
 };
 
@@ -13,7 +13,7 @@ const readOne = async (ctx) => {
 
 	ctx.assert(id, 400);
 
-	const task = await taskService.getTaskById(id);
+	const task = await taskService.getById(id);
 	ctx.assert(task, 404);
 	ctx.assert(task.owner._id.toString() === userId, 401);
 
@@ -24,7 +24,7 @@ const readOne = async (ctx) => {
 const create = async (ctx) => {
 	const { userId } = ctx.session;
 
-	ctx.body = await taskService.createTask({
+	ctx.body = await taskService.create({
 		...ctx.request.body,
 		owner: userId
 	});
@@ -36,11 +36,11 @@ const updateOne = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(id, 400);
 
-	const task = await taskService.getTaskById(id);
+	const task = await taskService.getById(id);
 	ctx.assert(task, 404);
 	ctx.assert(task.owner._id.toString() === userId, 401);
 
-	ctx.body = await taskService.updateTaskById(id, ctx.request.body);
+	ctx.body = await taskService.updateById(id, ctx.request.body);
 	ctx.status = 200;
 };
 
@@ -49,11 +49,11 @@ const deleteOne = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(id, 400);
 
-	const task = await taskService.getTaskById(id);
+	const task = await taskService.getById(id);
 	ctx.assert(task, 404);
 	ctx.assert(task.owner._id.toString() === userId, 401);
 
-	ctx.body = await taskService.deleteTaskById(id);
+	ctx.body = await taskService.deleteById(id);
 	ctx.status = 200;
 };
 

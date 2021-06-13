@@ -1,7 +1,7 @@
 const userService = require('../../domain/services/user');
 
 const signUp = async (ctx) => {
-	const user = await userService.createUser(ctx.request.body);
+	const user = await userService.create(ctx.request.body);
 
 	ctx.session.userId = user._id;
 	ctx.session.authorized = true;
@@ -36,7 +36,7 @@ const readMe = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(userId, 401);
 
-	const user = await userService.getUserById(userId);
+	const user = await userService.getOne(userId);
 	ctx.assert(user, 404);
 
 	ctx.body = user;
@@ -47,7 +47,7 @@ const updateMe = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(userId, 400);
 
-	ctx.body = await userService.updateUserById(userId, ctx.request.body);
+	ctx.body = await userService.updateById(userId, ctx.request.body);
 	ctx.status = 200;
 };
 
@@ -55,7 +55,7 @@ const deleteMe = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(userId, 400);
 
-	ctx.body = await userService.deleteUserById(userId);
+	ctx.body = await userService.deleteById(userId);
 	ctx.status = 200;
 };
 

@@ -10,6 +10,7 @@ const config = require('../config');
 const STATIC_PATH = path.join(__dirname, '..', '..', 'frontend');
 
 const Server = {
+	app: null,
 	start() {
 		const { port } = config.server;
 
@@ -26,12 +27,13 @@ const Server = {
 
 		app.use(koaStatic(STATIC_PATH));
 		app.use(router.routes());
-		app.listen(port);
 
-		// app.use(function *(){
-		// 	this.set('Access-Control-Allow-Origin', '*');
-		// 			});
+		this.app = app.listen(port);
+
 		console.log(`=> [Server] Сервер запущений на ${port} порту`);
+	},
+	stop() {
+		this.app.close();
 	}
 };
 

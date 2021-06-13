@@ -3,7 +3,7 @@ const taskService = require('../../domain/services/task');
 
 const readMany = async (ctx) => {
 	const { userId } = ctx.session;
-	ctx.body = await categoryService.getCategories({ owner: userId });
+	ctx.body = await categoryService.getMany({ owner: userId });
 	ctx.status = 200;
 };
 
@@ -12,7 +12,7 @@ const readOne = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(id, 400);
 
-	const category = await categoryService.getCategoryById(id);
+	const category = await categoryService.getById(id);
 	ctx.assert(category, 404);
 	ctx.assert(category.owner._id.toString() === userId, 401);
 
@@ -23,7 +23,7 @@ const readOne = async (ctx) => {
 const create = async (ctx) => {
 	const { userId } = ctx.session;
 
-	ctx.body = await categoryService.createCategory({
+	ctx.body = await categoryService.create({
 		...ctx.request.body,
 		owner: userId
 	});
@@ -35,11 +35,11 @@ const updateOne = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(id, 400);
 
-	const category = await categoryService.getCategoryById(id);
+	const category = await categoryService.getById(id);
 	ctx.assert(category, 404);
 	ctx.assert(category.owner._id.toString() === userId, 401);
 
-	ctx.body = await categoryService.updateCategoryById(id, ctx.request.body);
+	ctx.body = await categoryService.updateById(id, ctx.request.body);
 	ctx.status = 200;
 };
 
@@ -48,15 +48,15 @@ const deleteOne = async (ctx) => {
 	const { userId } = ctx.session;
 	ctx.assert(id, 400);
 
-	await taskService.deleteTasks({
+	await taskService.deleteMany({
 		category: id
 	});
-	const category = await categoryService.getCategoryById(id);
+	const category = await categoryService.getById(id);
 
 	ctx.assert(category, 404);
 	ctx.assert(category.owner._id.toString() === userId, 401);
 
-	ctx.body = await categoryService.deleteCategoryById(id);
+	ctx.body = await categoryService.deleteById(id);
 	ctx.status = 200;
 };
 

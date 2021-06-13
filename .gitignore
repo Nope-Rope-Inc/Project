@@ -4,6 +4,10 @@ node_modules/
 .vs-code/
 .DS_Store/
 
+# Configs
+backend/config/configs/*
+!backend/config/configs/default.js
+
 # Logs
 logs
 *.log

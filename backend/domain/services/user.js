@@ -1,8 +1,12 @@
 const argon = require('argon2');
-const User = require('../models/user');
+const { createCRUDService } = require('./crud');
 
-class UserService {
-	async createUser(data) {
+const UserCRUDService = createCRUDService({
+	model: require('../models/user')
+});
+
+class UserService extends UserCRUDService {
+	async create(data) {
 		const { password } = data;
 
 		if (!password) {
@@ -11,40 +15,22 @@ class UserService {
 
 		data.password = await argon.hash(password);
 
-		return User.create(data);
+		return super.create(data);
 	}
 
-	async getUsers(filter = {}) {
-		return User.find(filter);
-	}
-
-	async getUserById(id) {
-		return User.findById(id);
-	}
-
-	async getUser(fields = {}) {
-		return User.findOne(fields);
-	}
-
-	async updateUserById(id, data) {
+	async updateById(id, data) {
 		if (data.password) {
 			data.password = await argon.hash(data.password);
 		}
-		return User.findByIdAndUpdate(id, data, { new: true });
-	}
-
-	async deleteUserById(id) {
-		return User.findByIdAndDelete(id);
+		return super.updateById(id, data);
 	}
 
 	async validatePasswordByEmail({ email, password }) {
-		const user = await this.getUser({ email });
+		const user = await this.getOne({ email });
 
 		if (!user) {
 			return { found: false };
 		}
-
-		console.log(user.password, password);
 
 		return {
 			found: true,
