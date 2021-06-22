@@ -1,3 +1,5 @@
+'use strict';
+
 const createCRUDService = ({ model, fieldsToPopulate = [] }) => {
 	return class {
 		#populateFields(document, fields = fieldsToPopulate) {
