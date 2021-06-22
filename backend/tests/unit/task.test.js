@@ -1,3 +1,5 @@
+'use strict';
+
 const DB = require('../../db');
 const config = require('../../config');
 const userService = require('../../domain/services/user');
