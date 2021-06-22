@@ -1,3 +1,5 @@
+'use strict';
+
 const DB = require('./db');
 const Server = require('./server');
 
