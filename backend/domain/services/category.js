@@ -1,3 +1,5 @@
+'use strict';
+
 const { createCRUDService } = require('./crud');
 
 const CategoryService = createCRUDService({
