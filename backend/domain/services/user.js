@@ -1,3 +1,5 @@
+'use strict';
+
 const argon = require('argon2');
 const { createCRUDService } = require('./crud');
 
