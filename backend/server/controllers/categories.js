@@ -1,3 +1,5 @@
+'use strict';
+
 const categoryService = require('../../domain/services/category');
 const taskService = require('../../domain/services/task');
 
