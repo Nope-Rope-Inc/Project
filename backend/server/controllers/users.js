@@ -1,3 +1,5 @@
+'use strict';
+
 const userService = require('../../domain/services/user');
 
 const signUp = async (ctx) => {
