@@ -1,3 +1,5 @@
+'use strict';
+
 const taskService = require('../../domain/services/task');
 
 const readMany = async (ctx) => {
