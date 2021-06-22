@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
 	db: {
 		url: '<DB-URL>'
