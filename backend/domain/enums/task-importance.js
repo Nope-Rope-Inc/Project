@@ -1,3 +1,5 @@
+'use strict';
+
 const TaskImportance = {
 	LOW: 0,
 	MEDIUM: 1,
