@@ -1,3 +1,5 @@
+'use strict';
+
 const path = require('path');
 const Koa = require('koa');
 const session = require('koa-session');
